@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Desafio Menu</title>
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        * {
+            /* Aqui eu estou zerando os margins e paddings padrões do navegador */
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            font-size: 62.5%;
+        }
+
+        body {
+            margin: 0;
+            /* Adicionei a cor padrão de fundo do site */
+            background-color: #D3D3D3;
+            
+        }
+
+        .cabecalho {
+            /* Coloca todos os items da caixa .cabecalho na mesma linha */
+            display: flex;
+            /* Centraliza os itens da flexbox verticalmente */
+            align-items: center;
+            /* Centraliza os itens da flexbox horizontalmente */
+            justify-content: space-between;
+            background-color: #333;
+            /* Aqui eu tô trazendo a fonte do google */
+            font-family: Oswald;
+            font-size: 2rem;
+            border-bottom: 5px solid #68AAD9;
+            padding: 0.5rem;
+        }
+
+        /* Une o menu e o logo pra que eles fiquem no canto esquerdo */
+        .menu-com-logo {
+            display: flex;
+            align-items: center;
+        }
+
+        /* A partr daqui quero colocar tudo da navbar */
+        ul {
+            /* retira aqueles simbolos que vem por padrão para cada item da lista */
+            list-style-type: none;
+            display: flex;
+        }
+
+        a {
+            /* Retira o sublinhado padrão dos links */
+            text-decoration: none;
+            color: #fff;
+            padding: 1rem;
+        }
+
+        ul a:hover{
+            background-color: #68AAD9;
+            color: #333333;
+            font-weight: bold;
+        }
+
+        .selecionado{
+            background-color: #68AAD9;
+            color: #333333;
+            font-weight: bold;
+        }
+
+        .menu-toggle {
+            display: none;
+        }
+
+        img {
+            width: 265px;
+            height: 50px;
+            margin: 0 1.5rem;
+        }
+
+        .destaque{
+            background-color: #E0323A;
+            border-radius: 5rem;
+            padding: 0.5rem 2rem;
+        }
+
+        aside{
+            margin-right: 2rem;
+        }
+
+        @media screen and (max-width: 900px){
+            aside{
+                display: none;
+            }
+        }
+
+        /* Aqui vai ficar o código para telas menores */
+        @media screen and (max-width: 800px) {
+        
+            /* Toggle leia-se negocinho do menu hamburguer  */
+            .menu-toggle {
+                font-size: 1.5rem;
+                padding: 1rem 1.5rem;
+                color: #B9B9B9;
+                background-color: #555;
+                border: 2px solid #b9b9b949;
+                border-radius: 5px;
+                display: inline;
+                cursor: pointer;
+            }
+
+            .menu {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="cabecalho">
+        <div class="menu-com-logo">
+            <div class="logo">
+                <a href="#inicio">
+                    <img src="http://files.cod3r.com.br/curso-web/logo.png" alt="Logo" />
+                </a>
+            </div>
+
+            <nav class="menu">
+                <ul>
+                    <li>
+                        <a class="link-menu" id="inicio" href="#inicio">Início</a>
+                    </li>
+                    <li>
+                        <a class="link-menu" id="cursos" href="#cursos">Cursos</a>
+                    </li>
+                    <li>
+                        <a class="link-menu" id="sobre" href="#sobre">Sobre</a>
+                    </li>
+                    <li>
+                        <a class="link-menu" id="contato" href="#contato">Contato</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <aside class="autenticacao">
+            <a href="#login">Login</a>
+            <a href="#registar" class="botao destaque">Registrar</a>
+        </aside>
+
+        <button class="menu-toggle">
+            <i class="fa fa-lg fa-bars"></i>
+        </button>
+    </header>
+
+    <script>
+        // Pega todos os elementos a da página
+        document.querySelectorAll('a').forEach(link => {
+            //Adiciona um evento para todos os elementos a/links da página
+            link.addEventListener("click", ()=>{
+                //Aqui eu pego o href do link clicado
+                const click = link.href;
+                //Nessa parte eu pego apenas o que está após a #
+                const posInicial = click.indexOf("#") + 1; //+1 para não pegar o #;
+                const posFinal = click.length;
+                const proxPag = click.substring(posInicial, posFinal)
+
+                //Aqui eu seleciono os links do menu de navegação apenas
+                document.querySelectorAll('.link-menu').forEach(linkMenu => {
+                    // Aqui eu confiro qual foi o link clicado e se esse link fizer parte desse menu então é adicionado a classe "selecionado" ao link para os demais eles voltam a ter apenas a sua classe padrão
+                    if(linkMenu.id === proxPag){
+                        linkMenu.classList += ' selecionado';
+                    }else{
+                        linkMenu.classList = 'link-menu';
+                    }
+                })
+                
+            })
+        })
+    </script>
+</body>
+
+</html>
