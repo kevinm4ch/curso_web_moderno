@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Card Design using HTML & CSS</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        body{
+            background-color: #f0f0f0;
+        }
+
+        .card-container{
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 100px;
+        }
+
+        .card{
+            /* Aqui ele define uma largura padrão para os cards */
+            width: 325px;
+            background-color: #f0f0f0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+            margin: 20px;
+        }
+
+        .card img{
+            /* Mas aqui ele define que a imagem ira tomar 100% do tamanhio da sua caixa pai então ela vai se ajustar automaticamente */
+            width: 100%;
+            /* Aqui foda-se */
+            height: auto;
+        }
+
+        .card-content{
+            padding: 16px;
+        }
+
+        .card-content h3{
+            font-size: 28px;
+            margin: 8px;
+        }
+
+        .card-content p{
+            color: #666;
+            font-size: 15px;
+            /* Altura da linha, é autodescritivo eu que sou burro */
+            line-height: 1.3;
+        }
+
+        .card-content .btn{
+            /* Aqui mantem os elementos na mesma linha mas não entendo por que já que o botão tem uma linha própria */
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: #333;
+            /* Aqui é pra tirar os estilos padroes dos links */
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 16px;
+            color: #fff;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="card-container">
+        <div class="card">
+            <img src="img/image1.jpg" alt="">
+            <div class="card-content">
+                <h3>Card 1</h3>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint quos, omnis non hic ratione reprehenderit quia voluptates saepe voluptate obcaecati in, tenetur praesentium explicabo aliquid tempora! Vero ipsa maiores odit.</p>
+                <a href="" class="btn">Read More</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="img/image2.jpg" alt="">
+            <div class="card-content">
+                <h3>Card 2</h3>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint quos, omnis non hic ratione reprehenderit quia voluptates saepe voluptate obcaecati in, tenetur praesentium explicabo aliquid tempora! Vero ipsa maiores odit.</p>
+                <a href="" class="btn">Read More</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="img/image3.jpg" alt="">
+            <div class="card-content">
+                <h3>Card 3</h3>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint quos, omnis non hic ratione reprehenderit quia voluptates saepe voluptate obcaecati in, tenetur praesentium explicabo aliquid tempora! Vero ipsa maiores odit.</p>
+                <a href="" class="btn">Read More</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
